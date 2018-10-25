@@ -1,9 +1,23 @@
 server:  
   port: ${PORT:8763}
+  servlet:
+    session:
+      timeout: 600
 
 spring:
   application:
     name: scot-web
+  session:
+    store-type: redis
+    redis:
+      flush-mode: ON_SAVE
+      namespace: spring:session
+
+  redis:
+    host: 127.0.0.1
+    port: 6039
+    database: 2
+    password: biggbang
 
 logging:
   pattern:

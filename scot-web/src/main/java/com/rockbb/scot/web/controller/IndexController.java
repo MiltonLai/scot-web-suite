@@ -4,12 +4,15 @@ import com.rockbb.scot.commons.api.dto.UserDTO;
 import com.rockbb.scot.commons.api.service.UserDTOService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @RestController
@@ -48,5 +51,10 @@ public class IndexController {
     @RequestMapping(value = "/test4",method = RequestMethod.GET)
     public long users(){
         return userDTOService.count();
+    }
+
+    @GetMapping("/session")
+    public String session(HttpSession session) {
+        return session.getId();
     }
 }
