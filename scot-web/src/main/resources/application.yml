@@ -1,0 +1,18 @@
+server:  
+  port: ${PORT:8763}
+
+spring:
+  application:
+    name: scot-web
+
+logging:
+  pattern:
+    console: '%d{yyMMdd HH:mm:ssSSS} %8.8thread %1.-1level %25.25logger{50}#%4.4line %msg%n'
+  level:
+    com.rockbb: DEBUG
+
+eureka:  
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+    registerWithEureka: false
